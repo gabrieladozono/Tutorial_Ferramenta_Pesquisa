@@ -63,7 +63,7 @@ Esse código está genérico no momento, então é necessário alterar algumas i
 ### 5.1 Caminho da Planilha
 Para adicionar a planilha no código:
 - Adicione a planilha dentro da pasta do projeto.
-- Troque o nome da planilha dentro do código. É necessário trocar na linha 96 e na linha 387.
+- Troque o nome da planilha dentro do código. É necessário trocar na linha 93 e na linha 401.
 
 <p align="center">
   <img src="imagens/planilha1.png" alt="Planilha 1" width="400">
@@ -76,7 +76,7 @@ Para adicionar a planilha no código:
 ## 5.2 Adicionar termos substitutos 
 Para facilitar na hora de realizar a pesquisa, é necessário definir termos que indiquem em qual coluna a ferramenta deve olhar de acordo com a pesquisa desejada.
 
-- A partir da linha 9, você pode adicionar diversos termos para as colunas da sua planilha. Apenas siga o formato disponibilizado no código.
+- A partir da linha 8, você pode adicionar diversos termos para as colunas da sua planilha. Apenas siga o formato disponibilizado no código.
 
 <p align="center">
   <img src="imagens/termos.png" alt="Mapeamento de termos" width="400">
@@ -105,7 +105,7 @@ entrada = {
 
 ## 6. Explicação de cada variável da entrada
 - Column_operation : Aqui você define qual coluna será realizada a operação.
-- Operation: Aqui você define qual operação será realizada. Há uma grande variedade de operações possíveis, como listar, média, diferença, soma, etc. Todas as operações podem ser encontradas no código a partir da linha 247.
+- Operation: Aqui você define qual operação será realizada. Há uma grande variedade de operações possíveis, como listar, média, diferença, soma, etc. Todas as operações podem ser encontradas no código a partir da linha 240.
 
 <p align="center">
   <img src="imagens/operacoes.png" alt="Operações possíveis" width="400">
