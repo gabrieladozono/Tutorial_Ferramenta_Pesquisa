@@ -12,25 +12,6 @@ Antes de começar, é necessário ter o **VSCode** instalado no seu computador. 
 ## 2. Baixando o Python
 Depois de instalado é necessário baixar o Python. Ele pode ser baixado nas extensões dentro do VSCode, ou pelo terminal.
 
-### 2.1 Pelas extensões do VSCode
-
-- Abra a aba de extensões e procure "python" e clique instalar.
-
-<p align="center">
-  <img src="imagens/python.png" alt="Extensão python" width="300">
-</p>
-
-> Agora o Python está instalado.
-
-### 2.2 Pelo terminal
-
-- No terminal rode
-
-```bash
-pip install python
-```
-> Agora o Python está instalado.
-
 ## 3. Abrindo uma pasta e arquivo
 Para rodar a ferramenta é necessário que o arquivo esteja dentro de uma pasta local.
 - Crie uma pasta com o nome desejado.
