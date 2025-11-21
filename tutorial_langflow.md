@@ -93,6 +93,8 @@ No novo prompt da LLM, coloque TODAS as instruções para que a LLM estruture a 
 > Sem essa LLM, a ferramenta de pesquisa retorna o resultado da busca em JSON, então essa segunda LLM serve para formatar as respostas.
 
 - Clique no arquivo abaixo que possui um exemplo de prompt:
+
+
 👉🏼 [Clique aqui para visualizar o arquivo `prompt_llm2.txt`](codigo/LLM5.txt)
 
 ## 8. Conectando a LLM ao Output
