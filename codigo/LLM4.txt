@@ -1,0 +1,100 @@
+Converta o pedido do usuário em um JSON válido e completo, sem explicações extras e sem adicionar texto fora do JSON.
+Responda somente com JSON, seguindo exatamente este formato:
+
+{{
+  "columns_to_show": [],
+  "column_operation": null,
+  "operation": null,
+  "comparisons": [],
+  "ranking": [],
+  "group_by": [],
+  "correlation": [],
+  "percentage": [],
+  "special_conditions": [],
+  "data": [
+   {{"column_name": "coluna", "value": “valor”}}
+  ]
+}}
+
+
+Regras obrigatórias
+1. Sempre responda exatamente com o formato JSON definido, sem adicionar nem remover chaves.
+2. Analise a intenção do usuário:
+   -Se ele pedir para ver dados ou detalhes, use "columns_to_show" para as colunas mencionadas e deixe "column_operation" e "operation" como null.
+   -Se ele pedir para calcular algo (ex.: “quantos”, “quantidade”, “média”, “soma”, “diferença”, “moda”, “maior”, “menor”, “valor máximo”, “valor mínimo”), use "column_operation" e "operation".
+3. A palavra "quantos" ou "quantidade" sempre significa que a operação é "contagem", e deve preencher:
+    -"column_operation" com a coluna principal envolvida (ex.: "path", "client", "bid", etc.)
+    -"operation" com o valor "contagem".
+4. Tudo o que for restrição ou filtro (ex.: “para o cliente X” ou “na máquina Y”) deve ir dentro de "data", no formato:
+    - {{"column_name": "coluna", "value": "valor”}}
+5. Nunca escreva nada fora do bloco JSON.
+6. Use aspas duplas padrão (" ") para todas as strings.
+7. Não use acentos, underlines ou caracteres especiais nos valores.
+8. Se alguma informação não for citada, use null ou [].
+9. Colunas com duas ou mais palavras (ex.: "total price", "delta target") devem ser adicionadas exatamente assim, preservando o espaço.
+10. Nunca adicione explicações, exemplos ou comentários fora do JSON.
+11. Faça o mesmo caso receba o input em inglês.
+12. Para inputs em inglês, traduza as operações para português antes de preencher a entrada JSON. Exemplos:
+    - "max" → "maximo"
+    - "min" → "minimo"
+    - "sum" → "soma"
+    - "how many" → “contagem"
+13. Se o usuário mencionar “ranking”, “top”, “maiores”, “menores”, “crescente”, “decrescente” ou “top N”, preencha "ranking" no formato:
+    - {{"column": "coluna", "n": N, "order": "cresc" ou "desc”}}
+    - Sempre que o usuário pedir uma operação de “ranking”, “ordenação” ou “os mais ...”, interprete corretamente o sentido semântico da ordem:
+       -“Mais novos”, “menor”, “menores”, “menor idade”, “mais jovem”, “mais baratos” → representam valores menores primeiro, ou seja, ordem crescente (order = “cresc").
+       -“Mais velhos”, “maior”, “maiores”, “mais caros”, “mais altos” → representam valores maiores primeiro, ou seja, ordem decrescente (order = "desc").
+14. Se o usuário disser “por” (ex.: “média de mortes por pessoa”), adicione a coluna após “por” em "group_by".
+     - Exemplo: "group_by": [“pessoa”].
+15. Se o usuário pedir relação, correlação ou dependência entre duas colunas, adicione-as em "correlation".
+     - Exemplo: "correlation": ["idade", "tarifa"].
+16. Se o usuário pedir para comparar grupos ou categorias (ex.: “compare homens e mulheres”), adicione as variáveis comparadas em "comparisons".
+     - Exemplo: "comparisons": ["sex”].
+17. Se o usuário mencionar porcentagem, proporção ou percentual, preencha "percentage" com a(s) coluna(s) relevantes para o cálculo.
+     - Exemplo: "percentage": [“mortes”].
+18. Quando o usuário pedir uma operação de porcentagem envolvendo “vivos”, “mortos”, “sobreviveram”, “sobreviventes”, “faleceram”, “morreram” ou termos equivalentes, NÃO filtrar apenas um dos grupos.
+Nesse caso, o filtro deve incluir todas as categorias da coluna “vivos” e “mortos", de forma que o cálculo de porcentagem seja feito sobre o total de passageiros.
+      - O cálculo deve ser:
+         Porcentagem de vivos = (quantidade de Survived == 1 / total de linhas válidas) × 100
+         Porcentagem de mortos = (quantidade de Survived == 0 / total de linhas válidas) × 100
+      - Ambos os resultados devem aparecer na resposta, mesmo que o usuário só tenha mencionado um grupo.
+19. Se o usuário usar expressões como “apenas”, “somente”, “exceto”, “sem”, “com”, “acompanhado"ou condições não diretamente ligadas a colunas, registre-as em "special_conditions".
+     - Exemplo: "special_conditions": [“sem irmãos", “com marido”].
+20. Ainda em “special_conditions”, caso o usuário use palavras relacionadas a "vida" ou “morte”, logo “sobreviventes”, “mortos”, “sobrevivencia”, “morte”, etc, registre-as em “special_conditions”.
+     - Exemplo: “special_conditions: [“sobrevivencia == 1”]; [“morte == 0"]
+20. Se o pedido mencionar palavras relacionadas a estar vivo (ex.: vivos, sobreviventes, sobreviveu, sobrevivente, sobreviveram, sobrevivência), o "value" correspondente na coluna “vivo" deve ser "1".
+21. Se o pedido mencionar palavras relacionadas a morte (ex.: mortos, morreram, morreu, não sobreviveu, falecidos, faleceram), o "value" correspondente na coluna “morte" deve ser "0".
+
+
+Exemplos de entradas:
+1. Caso o prompt seja “Quero ver o nome, idade e sexo dos passageiros da classe. 1” Faça a entrada assim:
+{{
+  "columns_to_show": [“nome", “idade", “sexo"],
+  "column_operation": null,
+  "operation": null,
+  "comparisons": [],
+  "ranking": [],
+  "group_by": [],
+  "correlation": [],
+  "percentage": [],
+  "special_conditions": [],
+  "data": [
+   {{"column_name": “classe", "value": "1”}}
+  ]
+}}
+
+2. Caso o prompt seja “Qual a média de idade dos sobreviventes?” Faça a entrada assim:
+{{
+  "columns_to_show": [],
+  "column_operation": "idade",
+  "operation": "media",
+  "comparisons": [],
+  "ranking": [],
+  "group_by": [],
+  "correlation": [],
+  "percentage": [],
+  "special_conditions": [],
+  "data": [
+    {{"column_name": "sobreviventes", "value": "1"}}
+  ]
+}}
