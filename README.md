@@ -76,7 +76,7 @@ Agora que o componente customizado já está no fluxo, vamos adicionar o compone
 - No componente selecione Message.
   
 <p align="center"> 
-  <img src="imagens/typeconvert.png" alt="Configuração do componente TypeConvert para Message" width="400"> 
+  <img src="imagens/typeconvert2.png" alt="Configuração do componente TypeConvert para Message" width="400"> 
 </p>
 
 💡Essa conversão garante que o formato da resposta gerada pelo componente customizado seja compatível com a entrada da LLM (ou de outros nós que esperam mensagens como tipo de dado).
