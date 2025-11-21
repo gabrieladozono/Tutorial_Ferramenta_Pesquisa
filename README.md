@@ -45,7 +45,7 @@ Essa descrição define como a LLM deve interpretar o pedido do usuário e gerar
 > Dica: Coloque exemplos de inputs e suas respectivas entradas para facilitar o trabalho da LLM.
 - Clique no arquivo abaixo e veja um exemplo de descrição:
 
-👉🏼 [Clique aqui para visualizar o arquivo `prompt_llm.txt`](codigo/LLM.txt)
+👉🏼 [Clique aqui para visualizar o arquivo `prompt_llm.txt`](codigo/LLM4.txt)
 
 ## 5. Adicionando um componente customizado ao fluxo
 Agora, vamos inserir um componente customizado no fluxo.
@@ -93,7 +93,7 @@ No novo prompt da LLM, coloque TODAS as instruções para que a LLM estruture a 
 > Sem essa LLM, a ferramenta de pesquisa retorna o resultado da busca em JSON, então essa segunda LLM serve para formatar as respostas.
 
 - Clique no arquivo abaixo que possui um exemplo de prompt:
-👉🏼 [Clique aqui para visualizar o arquivo `prompt_llm2.txt`](codigo/LLM2.txt)
+👉🏼 [Clique aqui para visualizar o arquivo `prompt_llm2.txt`](codigo/LLM5.txt)
 
 ## 8. Conectando a LLM ao Output
 Agora que temos a segunda LLM configurada, é necessário conectar sua saída à caixa de Output, para que o resultado final apareça quando o fluxo for executado.
@@ -166,16 +166,9 @@ Para adicionar o project ID e a API key:
   <img src="imagens/apikey2.png" alt="API key" width="400"> 
 </p>
 
-## 10. Ajuste opcionais
-Alterações podems er feitas de acordo com sua vontade, como:
-- O mapeamento de termos
-- Prompt da LLM
-
-Para isso, apenas siga a estrutura de cada componente para realizar qualquer alteração. Precisando de ajuda é só mandar mensagem!
-
 ✅ Pronto! Agora o fluxo está pronto para ser usado!
 
-## 11. Rodar o fluxo
+## 10. Rodar o fluxo
 Da forma que a primeira LLM está configurada, há uma forma específica de enviar o input/pergunta.
 
 Nas perguntas é necessário citar o termo, da bibloteca de termos do código, que quer ver, sendo ele sozinho ou acompanhado do filtro que será feito, por exemplo:
