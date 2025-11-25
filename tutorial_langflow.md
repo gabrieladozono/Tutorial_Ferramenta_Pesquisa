@@ -67,7 +67,7 @@ Como descrito a cima, é necessário alterar algumas coisas para que a ferrament
 - Caminho da planilha: No final do código é necessário que você troque "Planilha.xlsx" pelo caminho da sua planilha no seu computador
 
 <p align="center">
-  <img src="imagens/caminhoplanilha2.png" alt="Custom Component" width="400">
+  <img src="imagens/caminhoplanilha2.png" alt="Custom Component" width="500">
 </p>
 
 - Mapeamento de termos: Logo no início do código há um mapeamento de termos necessário para o funcionamento da pesquisa.
