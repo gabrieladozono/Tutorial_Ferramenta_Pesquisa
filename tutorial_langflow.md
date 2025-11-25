@@ -62,6 +62,20 @@ Esse componente contém um código personalizado que você pode importar ou cola
 
 > **É necessário apagar todo o código padrão do componente antes de colar o código novo**
 
+### 5.1 Adaptações necessárias
+Como descrito a cima, é necessário alterar algumas coisas para que a ferramenta de pesquisa funcione com base na sua planilha. É necessário alterar duas coisas:
+- Caminho da planilha: No final do código é necessário que você troque "Planilha.xlsx" pelo caminho da sua planilha no seu computador
+
+<p align="center">
+  <img src="imagens/caminhoplanilha2.png" alt="Custom Component" width="300">
+</p>
+
+- Mapeamento de termos: Logo no início do código há um mapeamento de termos necessário para o funcionamento da pesquisa.
+
+<p align="center">
+  <img src="imagens/termos.png" alt="Custom Component" width="300">
+</p>
+
 Por enquanto o fluxo está nesse formato:
 <p align="center">
   <img src="imagens/flow.png" alt="Fluxo por enquanto" width="500">
