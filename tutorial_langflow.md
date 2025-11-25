@@ -113,8 +113,10 @@ Agora que temos a segunda LLM configurada, é necessário conectar sua saída à
 
 ## 9. Adaptações necessárias
 Apesar do fluxo estar completo, ele ainda não rodará completamente. Agora é necessário modificar duas coisas:
-- Adaptações como o caminho da planilha e o mapeamento de termos, explicadas no tutorial do vscode.
-- O project ID e a API key, necessários para rodar a LLM.
+- O project ID
+- A API key
+
+> Ambos dentro dos componentes da LLM.
 
 Para adicionar o project ID e a API key:
 -  Reserve o ambiente do watsonx na techzone. Busque por "watsonx Orchestrate Trial/Standard plan".
